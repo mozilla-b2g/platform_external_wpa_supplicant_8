@@ -1,5 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
+ifneq ($(PROPRIETARY_BLOBS_EXIST),true)
 ifneq ($(filter VER_0_8_X VER_2_1_DEVEL,$(WPA_SUPPLICANT_VERSION)),)
 # The order of the 2 Android.mks does matter!
 # TODO: Clean up the Android.mks, reset all the temporary variables at the
@@ -8,4 +9,5 @@ ifneq ($(filter VER_0_8_X VER_2_1_DEVEL,$(WPA_SUPPLICANT_VERSION)),)
 include $(LOCAL_PATH)/hostapd/Android.mk \
         $(LOCAL_PATH)/wpa_supplicant/Android.mk \
         $(LOCAL_PATH)/hs20/client/Android.mk
+endif
 endif
