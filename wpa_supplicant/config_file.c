@@ -1270,6 +1270,9 @@ int wpa_config_write(const char *name, struct wpa_config *config)
 			ret = -1;
 
 		os_free(tmp_name);
+		FILE *f_name = fopen(name, "r");
+		fsync(fileno(f_name));
+		fclose(f_name);
 	}
 
 	wpa_printf(MSG_DEBUG, "Configuration file '%s' written %ssuccessfully",
