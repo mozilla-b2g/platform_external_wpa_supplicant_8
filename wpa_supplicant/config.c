@@ -3292,6 +3292,13 @@ struct wpa_config * wpa_config_alloc_empty(const char *ctrl_interface,
 	config->rand_addr_lifetime = DEFAULT_RAND_ADDR_LIFETIME;
 	config->key_mgmt_offload = DEFAULT_KEY_MGMT_OFFLOAD;
 
+	config->p2p_listen_reg_class = 81;
+	config->p2p_listen_channel = 1;
+	config->p2p_oper_reg_class = 81;
+	config->p2p_oper_channel = 1;
+	config->persistent_reconnect = 1;
+	config->p2p_ignore_shared_freq = 1;
+
 	if (ctrl_interface)
 		config->ctrl_interface = os_strdup(ctrl_interface);
 	if (driver_param)

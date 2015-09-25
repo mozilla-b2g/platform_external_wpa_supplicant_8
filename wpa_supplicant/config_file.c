@@ -1026,6 +1026,7 @@ static void wpa_config_write_global(FILE *f, struct wpa_config *config)
 	if (config->p2p_passphrase_len)
 		fprintf(f, "p2p_passphrase_len=%u\n",
 			config->p2p_passphrase_len);
+	fprintf(f, "p2p_pref_chan=%u:%u\n",81,1);
 	if (config->p2p_pref_chan) {
 		unsigned int i;
 		fprintf(f, "p2p_pref_chan=");
